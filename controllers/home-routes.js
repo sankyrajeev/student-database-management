@@ -1,5 +1,8 @@
 const router = require('express').Router();
-const { Post, Comment, User } = require('../models/');
+const { Student,Class,Grade } = require('../models/');
+
+
+const withAuth = require('../utils/auth');
 
 // get all posts for homepage
 router.get('/', async (req, res) => {
@@ -41,5 +44,26 @@ router.get('/signup', (req, res) => {
 
   res.render('signup');
 });
+
+router.get('/input', async (req, res) => {
+  
+  try{
+    const studentData = await Student.findAll();
+    const students = studentData.map(student => student.get({plain:true}))
+
+    const courseData = await Class.findAll();
+    const courses = courseData.map(course => course.get({plain:true}))
+
+    const gradeData = await Grade.findAll();
+    const grades = gradeData.map(grade=> grade.get({plain:true}))
+
+
+    res.render("input",{students,courses,grades});
+  }
+  catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;
