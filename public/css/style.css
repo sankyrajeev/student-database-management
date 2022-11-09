@@ -1,0 +1,55 @@
+*{
+    background-color: #373E98;
+}
+
+.card-header , .card{
+    background-color: #373E98;
+    padding: 20px;
+}
+body{
+    background-color: #373E98;
+}
+
+
+.app-title ,h2{
+    justify-content:center;
+    display: grid;
+    place-content: center center;
+    font-family: 'Anton';
+    font-size: 62px;
+    color: white ;
+    text-shadow: 21px 21px 10px #2a2a2a;
+   
+}
+
+h2{
+    font-size: 31px;;
+}
+
+.card-body{
+    
+    display: grid;
+    place-content: center center;
+    
+}
+
+.btn{
+    padding: 5px 10px;
+    font-size: 12x;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #2e2e2e;
+    background-color: #fee36e;
+    border: none;
+    border-radius: 15px;
+    
+  }
+  
+  .btn:hover {background-color: #3e8e41}
+  
+  .btn:active {
+    background-color: #fee36e;
+    
+    transform: translateY(4px);
+  }
