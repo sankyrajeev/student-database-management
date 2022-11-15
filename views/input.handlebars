@@ -1,11 +1,30 @@
 
 <select name="students" id="students">
 {{#each students as |student|}}
-<option value="{{student.first_name}} + ' '+{{student.last_name}}">{{student.first_name}} {{student.last_name}}</option>
+<option value="{{student.id}}">{{student.first_name}} {{student.last_name}}</option>
 {{/each}}
 
 </select>
 
+
+
+<select name="courses" id="courses">
+{{#each courses as |course|}}
+<option value= "{{course.id}}">{{course.class_name}}</option>
+{{/each}}
+
+</select>
+
+
+
+
+
+<select name="grade" id="grade">
+{{#each grades as |grade|}}
+<option value="{{grade.id}}">{{grade.grade}}</option>
+{{/each}}
+
+</select>
 
 {{!-- drop downs for course and grade --}}
 
@@ -19,7 +38,7 @@
   <input type="text" id="fname" name="fname"><br>
   <label for="lname">Student Last name:</label><br>
   <input type="text" id="lname" name="lname">
-  <button class="btn" type="submit">Submit!</button>
+  <button class="btn" id="btn" type="submit">Submit!</button>
 </form>
 
 
@@ -33,3 +52,9 @@
   <option value="D">D</option>
   <option value="F">F</option>
 </select>
+
+
+<button class="btn" id="add-btn" type="submit">Add Grade</button>
+
+
+<script src="/js/newStudent.js"></script>

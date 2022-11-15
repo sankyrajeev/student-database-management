@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const withAuth = require("../../utils/auth");
-const { Student } = require("../../models")
+const { Student, StudentClass, Grade } = require("../../models");
+
 
 // router.post('/', withAuth, async (req, res) => {
 //   const body = req.body;
@@ -57,6 +58,29 @@ router.post('/', withAuth, async (req, res) => {
   }
   catch (err) {
     res.status(500).json(err.message);
+  }
+});
+
+router.post('/student-course',withAuth,async(req,res) =>{
+  try{
+    const enrollment = await StudentClass.create(req.body);
+    res.json(enrollment);
+
+  }
+  catch(err){
+    res.status(500).json(err)
+  }
+})
+
+
+router.post('/grade',withAuth,async(req,res) =>{
+  try{
+    const grade = await Grade.create(req.body);
+    res.json(grade);
+
+  }
+  catch(err){
+    res.status(500).json(err)
   }
 })
 

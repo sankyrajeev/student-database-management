@@ -57,7 +57,7 @@ router.get('/input', async (req, res) => {
     const gradeData = await Grade.findAll();
     const grades = gradeData.map(grade=> grade.get({plain:true}))
 
-
+    console.log(students);
     res.render("input",{students,courses,grades});
   }
   catch (err) {

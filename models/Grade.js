@@ -14,19 +14,31 @@ Grade.init(
       primaryKey: true,
       autoIncrement: true
     },
-    grade: {     
+    grade: {
       type: DataTypes.STRING,
       allowNull: false
-    }
-  },
-  {
+    },
+    student_id: {
+      type: DataTypes.INTEGER,
+      references: { model: "Student", key: "id" }
+    },
     
+      class_id: {
+      type: DataTypes.INTEGER,
+      references: { model: "Class", key: "id" }
+    },
+  },
+
+  {
+
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'Grade'
   }
+
+
 );
 
 module.exports = Grade;
