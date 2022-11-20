@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const withAuth = require("../../utils/auth");
-const { Student, StudentClass, Grade } = require("../../models");
+const { Student, StudentClass, Grade, NewGrade } = require("../../models");
 
 
 // router.post('/', withAuth, async (req, res) => {
@@ -16,45 +16,33 @@ const { Student, StudentClass, Grade } = require("../../models");
 
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    const [affectedRows] = await Post.update(req.body, {
-      where: {
-        id: req.params.id,
-      },
+    console.log(req.body); 
+    const updatedStudent = await Student.update(
+      req.body,
+         {
+        where: {
+            id: req.params.id
+        },
     });
-
-    if (affectedRows > 0) {
-      res.status(200).end();
-    } else {
-      res.status(404).end();
-    }
-  } catch (err) {
+   
+} catch (err) {
     res.status(500).json(err);
-  }
-});
+}
 
-router.delete('/:id', withAuth, async (req, res) => {
-  try {
-    const [affectedRows] = Post.destroy({
-      where: {
-        id: req.params.id,
-      },
-    });
 
-    if (affectedRows > 0) {
-      res.status(200).end();
-    } else {
-      res.status(404).end();
-    }
-  } catch (err) {
-    res.status(500).json(err);
-  }
 });
+  
+ 
+
 
 router.post('/', withAuth, async (req, res) => {
   
   try {
-    const newStudent = await Student.create(req.body)
-    res.json(newStudent);
+    const newStudent = await Student.create(req.body);
+    console.log(newStudent);
+
+    // res.render("input",newStudent);
+    res.json({newStudent});
   }
   catch (err) {
     res.status(500).json(err.message);
@@ -83,5 +71,34 @@ router.post('/grade',withAuth,async(req,res) =>{
     res.status(500).json(err)
   }
 })
+
+
+router.delete('/:id',async (req, res) => {
+  // delete a category by its `id` value
+  try{
+    const deleteStudent= await Student.destroy({
+      where:{
+        id:req.params.id
+      }
+    });
+    if(!deleteStudent){
+      res.status(404).json({message:"Student does not exist with that ID"})
+    }
+    res.status(200).json(deleteStudent);
+  }
+  catch(err){
+    res.status(500).json(err.message);
+  }
+
+});
+
+
+
+
+
+
+
+
+
 
 module.exports = router;

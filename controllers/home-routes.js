@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Student,Class,Grade } = require('../models/');
 
 
+
 const withAuth = require('../utils/auth');
 
 // get all posts for homepage
@@ -45,20 +46,28 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+
+
+router.get('/input/:id', async (req, res) => {
+  
+  try{
+    const studentData = await Student.findByPk(req.params.id);
+    res.json(studentData);
+  }
+  catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/input', async (req, res) => {
   
   try{
     const studentData = await Student.findAll();
     const students = studentData.map(student => student.get({plain:true}))
-
-    const courseData = await Class.findAll();
-    const courses = courseData.map(course => course.get({plain:true}))
-
-    const gradeData = await Grade.findAll();
-    const grades = gradeData.map(grade=> grade.get({plain:true}))
+    
 
     console.log(students);
-    res.render("input",{students,courses,grades});
+    res.render("input",{students});
   }
   catch (err) {
     res.status(500).json(err);

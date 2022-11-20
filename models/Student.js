@@ -21,7 +21,27 @@ Student.init(
     last_name: {
         type: DataTypes.STRING,
         allowNull: false
-      }
+      },
+      Mathgrade: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      Sciencegrade: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      Historygrade: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      Geographygrade: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      Englishgrade: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
   },
   {
     
