@@ -1,21 +1,36 @@
 const editFormhandler = async (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
 
-    const title = document.querySelector('#post-title').value; 
-    const content = document.querySelector('#post-content').value; 
-    const post_id = document.querySelector('#postId').value; 
-    console.log( title, content )
+    const first_name = document.querySelector('#fname').value;
+    const last_name = document.querySelector('#lname').value;
+    const Mathgrade = document.querySelector('#mathGrade').value;
+    const Sciencegrade = document.querySelector("#scienceGrade").value;
+    const Historygrade = document.querySelector("#historyGrade").value;
+    const Geographygrade = document.querySelector("#geographyGrade").value;
+    const Englishgrade = document.querySelector("#englishGrade").value;
+
+
+    console.log(title, content)
     // if(title && content) {
-         await fetch(`/api/posts/${post_id}`, {
-            method: 'PUT', 
-            body: JSON.stringify({ title, content }), 
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        });
-      //  if (response.ok) {
-            document.location.reload();
-        
+    await fetch(`/api/input/${student.id}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+            first_name,
+            last_name,
+            Mathgrade,
+            Sciencegrade,
+            Historygrade,
+            Geographygrade,
+            Englishgrade
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    });
+    //  if (response.ok) {
+    document.location.reload();
+    console.log(student.id);
+
 };
 
-document.querySelector('.new-blog-form').addEventListener('submit', editFormhandler);
+document.querySelector('#headingstyling').addEventListener('submit', editFormhandler);

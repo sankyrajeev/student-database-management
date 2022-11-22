@@ -53,3 +53,51 @@ h2{
     
     transform: translateY(4px);
   }
+
+  h4{
+    color:white;
+    text-align: center;
+    padding-top: 2em;
+  }
+
+
+  .name{
+   
+    text-align: center;
+    line-height: 2em;
+    padding-top: 2em;
+  }
+  label{
+    color: white;
+    font-size: x-large;
+  }
+
+  input{
+    background-color: white;
+    
+  }
+  
+  #example-table{
+    color: white;
+    text-align: center;
+    margin-left: 12.5%;
+  }
+
+  #students{
+    color: white;
+  }
+
+  td{
+    border-style: solid;
+    background-color: green;
+    font-weight: bolder;
+  }
+
+  .delbtn{
+    color: white;
+    background-color: red;
+  }
+
+  .marks td{
+    color: white;
+  }

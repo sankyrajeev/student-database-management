@@ -1,3 +1,4 @@
+console.log("loaded scrpt");
 const newFormHandler = async function (event) {
   event.preventDefault();
 
@@ -31,7 +32,7 @@ const newFormHandler = async function (event) {
     document.location.reload();
   }
   else {
-    alert("Provide a valid first and last name");
+    alert("Please provide a valid Input and make sure all the spaces are filled");
   }
 
 }
@@ -42,8 +43,9 @@ document
 
 
 const deleteForm = async function (event) {
-
-  const id = event.target.getAttribute('value');
+  console.log("clicked");
+if(event.target.hasAttribute('data-id')){
+  const id = event.target.getAttribute('data-id');
 
   const response = await fetch(`/api/input/${id}`, {
     method: 'DELETE',
@@ -54,8 +56,12 @@ const deleteForm = async function (event) {
   } else {
     alert('Failed to delete');
   }
+}
 
 
 };
 
-document.querySelector('.delbtn').addEventListener('click', deleteForm);
+
+document.querySelector('.studentList').addEventListener('click', deleteForm);
+
+

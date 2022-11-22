@@ -1,92 +1,96 @@
-{{!-- <div name="students" id="students">
-  {{#each students as |student|}}
-  <h1 value="{{student.id}}">{{student.first_name}} {{student.last_name}}</h1>
-  <h2 value="{{student.id}}">{{student.Mathgrade}} </h2>
-  <h2 value="{{student.id}}">{{student.Sciencegrade}} </h2>
-  <h2 value="{{student.id}}">{{student.Historygrade}} </h2>
-  <h2 value="{{student.id}}">{{student.Geographygrade}} </h2>
-  <h2 value="{{student.id}}">{{student.Englishgrade}} </h2>
-
-  <button value="{{student.id}}" class="delbtn" type="click">Delete Student</button>
-  <button value="{{student.id}}" class="updbtn" type="click">Update Student</button>
-
-  {{/each}}
-
-</div> --}}
-
-
-<h4>Enter the name of the student not in the Database</h4>
+<h4>Enter the name of the student and the Grades</h4>
 
 <form class="name">
-  <label for="fname">Student First name:</label><br>
-  <input type="text" id="fname" name="fname"><br>
-  <label for="lname">Student Last name:</label><br>
-  <input type="text" id="lname" name="lname">
+  <div class="names">
+    <label for="fname">Student First name:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Student Last name:</label><br>
+    <input type="text" id="lname" name="lname"><br>
+  </div>
 
-  <label for="math">Grade for Subject Math</label><br>
-  <input type="text" id="mathGrade" name="mathGrade"><br>
+  <div class="grades">
+    <label for="math">Grade for Subject Math</label><br>
+    <input type="text" id="mathGrade" name="mathGrade"><br>
 
-  <label for="science">Grade for Subject Science</label><br>
-  <input type="text" id="scienceGrade" name="scienceGrade"><br>
+    <label for="science">Grade for Subject Science</label><br>
+    <input type="text" id="scienceGrade" name="scienceGrade"><br>
 
-  <label for="history">Grade for Subject History</label><br>
-  <input type="text" id="historyGrade" name="historyGrade"><br>
+    <label for="history">Grade for Subject History</label><br>
+    <input type="text" id="historyGrade" name="historyGrade"><br>
 
-  <label for="geography">Grade for Subject Geography</label><br>
-  <input type="text" id="geographyGrade" name="geographyGrade"><br>
+    <label for="geography">Grade for Subject Geography</label><br>
+    <input type="text" id="geographyGrade" name="geographyGrade"><br>
 
-  <label for="english">Grade for Subject English</label><br>
-  <input type="text" id="englishGrade" name="englishGrade"><br>
+    <label for="english">Grade for Subject English</label><br>
+    <input type="text" id="englishGrade" name="englishGrade"><br>
+  </div>
 
   <button class="btn" id="btn" type="submit">Submit!</button>
 </form>
 
+{{!-- <tbody class="stu">
+  {{#each students as |student|}}
+  <td>
+    <button data-id="{{student.id}}" class="delbtn" type="click">🗑️</button>
+  </td>
+
+  {{/each}}
+
+</tbody> --}}
 
 
-<div name="conatiner" id="students">
 
-  <table id="example-table">
-    <thead>
-      <tr>
-        <th width="200">Name</th>
-        <th>Math Grade</th>
-        <th>Science Grade</th>
-        <th>History Grade</th>
-        <th>Geography Grade</th>
-        <th>English Grade</th>
-        <th> </th>
-        <th> </th>
+<div name="container" id="students">
+  <div>
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.4.2/dist/js/tabulator.min.js"></script>
+        <link href="https://unpkg.com/tabulator-tables@5.4.2/dist/css/tabulator.min.css" rel="stylesheet">
 
 
-      </tr>
-    </thead>
-    <tbody>
-      {{#each students as |student|}}
-      <tr>
-        <td value="{{student.id}}">{{student.first_name}} {{student.last_name}}</td>
-        <td>{{student.Mathgrade}}</td>
-        <td>{{student.Sciencegrade}} </td>
-        <td>{{student.Historygrade}} </td>
-        <td>{{student.Geographygrade}} </td>
-        <td>{{student.Englishgrade}} </td>
-        <td>
-          <button value="{{student.id}}" class="delbtn" type="click">Delete Student</button>
-        </td>
-        <td>
-          <button value="{{student.id}}" class="updbtn" type="click">Update Student</button>
-        </td>
-      </tr>
-      {{/each}}
-    </tbody>
-  </table>
+    <table id="example-table">
+      <thead>
+        <tr>
+          <th width="200">Name</th>
+          <th width="200">Math Grade</th>
+          <th width="200">Science Grade</th>
+          <th width="200">History Grade</th>
+          <th width="200">Geography Grade</th>
+          <th width="200">English Grade</th>
+          <th> </th>
+          <th> </th>
 
+
+        </tr>
+      </thead>
+      <tbody class="studentList">
+        {{#each students as |student|}}
+        <tr class="marks">
+          <td value="{{student.id}}">{{student.first_name}} {{student.last_name}}</td>
+          <td value="{{student.id}}">{{student.Mathgrade}}</td>
+          <td value="{{student.id}}">{{student.Sciencegrade}} </td>
+          <td value="{{student.id}}">{{student.Historygrade}} </td>
+          <td value="{{student.id}}">{{student.Geographygrade}} </td>
+          <td value="{{student.id}}">{{student.Englishgrade}} </td>
+          <button data-id="{{student.id}}" class="delbtn" type="click">🗑️</button>
+
+
+
+
+
+        </tr>
+        {{/each}}
+      </tbody>
+      <script>
+        var table = new Tabulator("#example-table", {});
+      </script>
+    </table>
+  </div>
 </div>
 
 
 
 
 
+
+
+
 <script src="/js/newStudent.js"></script>
-<script src="/js/tabulator.js"></script>
-<link href="https://unpkg.com/tabulator-tables@5.4.2/dist/css/tabulator.min.css" rel="stylesheet">
-<script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.4.2/dist/js/tabulator.min.js"></script>

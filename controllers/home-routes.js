@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const { Student,Class,Grade } = require('../models/');
 
+// const {Tabulator} = require('tabulator-tables');
+// var table = new Tabulator("#example-table", {});
+
 
 
 const withAuth = require('../utils/auth');
