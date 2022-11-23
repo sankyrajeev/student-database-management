@@ -28,24 +28,23 @@
   <button class="btn" id="btn" type="submit">Submit!</button>
 </form>
 
-{{!-- <tbody class="stu">
+{{!-- <div class="slist">
   {{#each students as |student|}}
-  <td>
-    <button data-id="{{student.id}}" class="delbtn" type="click">🗑️</button>
-  </td>
+  
+    
+  
 
   {{/each}}
 
-</tbody> --}}
+</div> --}}
 
 
 
 <div name="container" id="students">
-  <div>
+  
     <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.4.2/dist/js/tabulator.min.js"></script>
-        <link href="https://unpkg.com/tabulator-tables@5.4.2/dist/css/tabulator.min.css" rel="stylesheet">
 
-
+<div  class="slist">
     <table id="example-table">
       <thead>
         <tr>
@@ -55,8 +54,8 @@
           <th width="200">History Grade</th>
           <th width="200">Geography Grade</th>
           <th width="200">English Grade</th>
-          <th> </th>
-          <th> </th>
+          <th width="100">Delete</th>
+          
 
 
         </tr>
@@ -64,23 +63,21 @@
       <tbody class="studentList">
         {{#each students as |student|}}
         <tr class="marks">
+          <button data-id="{{student.id}}" class="delbtn" type="click">🗑️:{{student.first_name}} {{student.last_name}}</button>
           <td value="{{student.id}}">{{student.first_name}} {{student.last_name}}</td>
           <td value="{{student.id}}">{{student.Mathgrade}}</td>
           <td value="{{student.id}}">{{student.Sciencegrade}} </td>
           <td value="{{student.id}}">{{student.Historygrade}} </td>
           <td value="{{student.id}}">{{student.Geographygrade}} </td>
           <td value="{{student.id}}">{{student.Englishgrade}} </td>
-          <button data-id="{{student.id}}" class="delbtn" type="click">🗑️</button>
-
-
-
-
-
-        </tr>
+          
+           </tr>
         {{/each}}
       </tbody>
       <script>
-        var table = new Tabulator("#example-table", {});
+        var table = new Tabulator("#example-table", {
+          textSize:"100"
+        });
       </script>
     </table>
   </div>

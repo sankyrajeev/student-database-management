@@ -1,4 +1,4 @@
-*{
+main{
     background-color: #373E98;
 }
 
@@ -87,17 +87,14 @@ h2{
     color: white;
   }
 
-  td{
-    border-style: solid;
-    background-color: green;
-    font-weight: bolder;
-  }
 
+.marks{
+  color: aliceblue;
+}
   .delbtn{
     color: white;
     background-color: red;
+    margin-right: -10em;
   }
 
-  .marks td{
-    color: white;
-  }
+ 

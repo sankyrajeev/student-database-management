@@ -62,6 +62,6 @@ if(event.target.hasAttribute('data-id')){
 };
 
 
-document.querySelector('.studentList').addEventListener('click', deleteForm);
+document.querySelector('.slist').addEventListener('click', deleteForm);
 
 
