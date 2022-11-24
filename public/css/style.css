@@ -26,14 +26,12 @@ h2{
     font-size: 31px;
 }
 
-.wrapper{
+/* .wrapper{
   display: flex;
   flex-wrap: nowrap;
-}
+} */
 
-#students{
-  display: flex;
-}
+
 
 .card-body{
     
