@@ -93,6 +93,20 @@ router.delete('/:id',async (req, res) => {
 });
 
 
+router.get('/',async(req,res) =>{
+
+    try{
+      const studentData = await Student.findAll();
+      const students = studentData.map(student => student.get({plain:true}))
+      console.log(students);
+      res.json(students);
+    }
+  catch(err){
+    res.status(500).json(err);
+  }
+})
+
+
 
 
 

@@ -23,7 +23,16 @@ body{
 }
 
 h2{
-    font-size: 31px;;
+    font-size: 31px;
+}
+
+.wrapper{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#students{
+  display: flex;
 }
 
 .card-body{
@@ -97,4 +106,33 @@ h2{
     margin-right: -10em;
   }
 
+  
+
+  .slist{
+    margin-left: 10.85em;
+    padding-top: 10em;
+    
+  }
+
+  @media screen and (max-width: 980px) {
+    #example-table{
+      max-height: 50%;
+      max-width: fit-content;
+    }
+
+    .app-title{
+      font-size: 3em;
+    }
+  }
+
+  @media screen and (max-width: 565px) {
+    #example-table{
+      max-height: 50%;
+      max-width: fit-content;
+    }
+
+    .app-title{
+      font-size: 2em;
+    }
+  }
  
